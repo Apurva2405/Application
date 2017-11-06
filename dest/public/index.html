@@ -1,0 +1,21 @@
+<html ng-app="MyApp">
+    <head>
+        <title>Application</title>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/toastr/toastr.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/bootbox/bootbox.js"></script>        
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/toastr/toastr.min.js"></script>
+        <script src="app/app.js"></script>
+    </head>
+    <body ng-controller="myController">
+        <div ui-view="myHeader"></div>
+        <div ui-view="myContent"></div>
+    </body>
+</html>

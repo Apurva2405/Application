@@ -1,0 +1,51 @@
+<div class="container" style="margin-top: 50px;">
+    <section class="col-md-8" ng-init="vm.getUserById();">
+        <h1>Add User</h1>
+        <form name="form" novalidate>
+            <div class="form-group">
+                <!--<label for="name">Name:</label>-->
+                <input type="text" class="form-control" name="name" placeholder="Name.." ng-model="vm.userObj.name" id="email" required>
+                <div ng-show="form.$submitted || form.name.$touched">
+                    <span class="text-danger" ng-show="form.name.$error.required" class="text-danger">Please enter name</span>
+                </div>
+            </div>
+            <div class="form-group">
+               <!-- <label for="email">Email address:</label>-->
+                <input type="email" name="email" class="form-control" placeholder="Email address.." ng-model="vm.userObj.emailid" ng-pattern="/^([a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9]+$)/"
+                    id="email" required>
+                <div ng-show="form.$submitted || form.emailid.$touched">
+                    <span class="text-danger" ng-show="form.email.$error.required" class="text-danger">Please enter Email</span>
+                    <span class="text-danger" ng-show="form.email.$error.pattern && (form.email.$invalid || form.email.$pristine)">Please enter valid Email</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+               <!-- <label for="pwd">Phone number:</label>-->
+                <input type="number" name="phone" class="form-control" placeholder="Phone Number.." ng-model="vm.userObj.phone" id="pwd" required>
+                <div ng-show="form.$submitted || form.phone.$touched">
+                    <span class="text-danger" ng-show="form.phone.$error.required" class="text-danger">Please enter phone number
+                                                            </span>
+                </div>
+            </div>
+            <div class="form-group">
+               <!-- <label> Salary:</label> -->
+                <input type="text" name="salary" class="form-control" placeholder="Salary.." ng-model="vm.userObj.salary" id="salary" required>
+                <div ng-show="form.$submitted || form.salary.$touched">
+                    <span class="text-danger" ng-show="form.salary.$error.required" class="text-danger">Please enter Salary</span>
+                    <!--<span class="text-danger" ng-show="form.address.$error.pattern && (form.email.$invalid || form.email.$pristine)">Please enter valid Email</span> -->
+                </div>
+            </div>
+            <div class="form-group" id="show_image">
+                <!--<label> Image:</label>{{vm.profile_pic}}///-->
+                <img src="{{vm.profile_pic}}" style="width: 50px; height: 50px;">
+                <!-- <img ng-if="!vm.userObj._id" src="" style="width: 50px; height: 50px;"> -->
+            </div>
+            <div class="form-group">
+                <input id="filePath" name="filePath" type="file" ng-model="image" ng-change="vm.showImage()" accept="image/*" />
+                <!-- <a id="uploadImage" ng-click="vm.uploadFile()">Upload</a> -->
+            </div>
+            <button type="submit" ng-click="vm.addUser(form)" class="btn btn-default">Submit</button>
+            <a class="btn btn-info" ui-sref="userList">Back</a>
+        </form>
+    </section>
+</div>
